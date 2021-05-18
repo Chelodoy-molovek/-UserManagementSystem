@@ -3,15 +3,12 @@ import React, {Component } from "react";
 
 export default class Users extends Component {
     onSubmit = (evt) => {
-        // evt.preventD
-        
-        
-        efaul();
+        evt.preventDefault();
         const formData = new FormData(evt.target);
         const data = [...formData.values()];
         const user = { name: data[0], gender: data[1], age: data[2] };
         this.props.addUsers(user);
-        console.log(this.props.addUsers)
+        // this.props.deleteFunc(user);
     }
     render() {
 
@@ -20,12 +17,6 @@ export default class Users extends Component {
             <div>
                 <div className="spisok">
                     <h1>Список пользователей</h1>
-                    {/* <ul>
-                        {this.props.arrUsers.map((item) => (
-                            <li key={item.id}>{item.name},{item.age},{item.gender}</li>
-                        ))
-                        }
-                    </ul> */}
                 </div>
                 <div>
                     <form onSubmit={this.onSubmit}>
